@@ -8,10 +8,11 @@ import {Notes} from './components/Notes.tsx'
 import {Header} from './components/Header.tsx'
 
 function App() {
+
  
   const [records, setrecords] = useState([
-    { id: Math.random(), study: 4, exercise: 2, lesuire: 2},
-    { id: Math.random(), study: 2, exercise: 2, lesuire: 2},
+    { id: Math.random(), study: 4, exercise: 2, leisure: 2},
+    { id: Math.random(), study: 2, exercise: 2, leisure: 2},
   ])
 
   const [navopen, setnavopen] = useState(false)
@@ -31,7 +32,6 @@ function App() {
           </Routes>
         </div>
       </BrowserRouter>
-
     </div>
   )
 

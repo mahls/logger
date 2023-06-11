@@ -1,5 +1,7 @@
 import React from 'react'
 import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 let Studycard = ({records, setrecords}) => {
 
@@ -9,7 +11,7 @@ let Studycard = ({records, setrecords}) => {
   let addRecord = (data) => {
     console.log(data)
     let studyHours = parseInt(data.study)
-    setrecords([...records, {id:Math.random(), study: studyHours, exercise: 0, lesuire: 0}]) 
+    setrecords([...records, {id:Math.random(), study: studyHours, exercise: 0, leisure: 0}]) 
     reset()
   }
 
@@ -17,7 +19,7 @@ let Studycard = ({records, setrecords}) => {
     <div>
       <form 
         onSubmit={handleSubmit(onSubmit)}
-        className='mt-3 border border-stone-800 text-white rounded px-10 py-5 bg-orange-500'>
+        className=' border border-stone-800 text-white rounded px-5 p-5 bg-orange-500'>
         <div>
           <p className='text-3xl font-bold'>Study</p>
           <p className='text-lg font-bold'>Enter a number </p>
@@ -43,7 +45,7 @@ let Exercisecard = ({records, setrecords}) => {
   let addRecord = (data) => {
     let exerciseHours = parseInt(data.exercise)
     console.log(exerciseHours)
-    setrecords([...records, {id:Math.random(), study: 0, exercise: exerciseHours, lesuire: 0}]) 
+    setrecords([...records, {id:Math.random(), study: 0, exercise: exerciseHours, leisure: 0}]) 
     reset()
   }
 
@@ -51,7 +53,7 @@ let Exercisecard = ({records, setrecords}) => {
     <div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className='mt-3 border border-stone-800 text-white rounded px-10 py-5 bg-green-500'>
+        className=' border border-stone-800 text-white rounded px-5 py-5 bg-green-500'>
         <div>
           <p className='text-3xl font-bold'>Exercise</p>
           <p className='text-lg font-bold'>Enter a number </p>
@@ -74,9 +76,8 @@ let Lesuirecard = ({records, setrecords}) => {
   const onSubmit = data => addRecord(data);
 
   let addRecord = (data) => {
-    let lesuireHours = parseInt(data.lesuire)
-    console.log(lesuireHours)
-    setrecords([...records, {id:Math.random(), study: 0, exercise: 0, lesuire: lesuireHours}]) 
+    let leisureHours = parseInt(data.leisure)
+    setrecords([...records, {id:Math.random(), study: 0, exercise: 0, leisure: leisureHours}]) 
     reset()
   }
 
@@ -85,12 +86,12 @@ let Lesuirecard = ({records, setrecords}) => {
     <div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className='mt-3 border border-stone-800 text-white rounded px-10 py-5 bg-blue-600'>
+        className=' border border-stone-800 text-white rounded px-5 py-5 bg-blue-600'>
         <div>
-          <p className='text-3xl font-bold'>Lesuire</p>
+          <p className='text-3xl font-bold'>Leisure</p>
           <p className='text-lg font-bold'>Enter a number </p>
           <div className='flex flex-col'>
-              <input className='rounded text-black px-2 mt-2 w-full' {...register("lesuire", {required: true})}/>
+              <input className='rounded text-black px-2 mt-2 w-full' {...register("leisure", {required: true})}/>
               <button className='rounded bg-blue-500 mt-2 hover:bg-blue-700 transition w-full'>Submit</button>
           </div>
         </div>
