@@ -59,7 +59,7 @@ let Todo = ({id, todos, todo, settodos}) => {
 
 
   return(
-    <motion.div
+    <div
       
       className='flex justify-between mt-2'
     >
@@ -68,7 +68,7 @@ let Todo = ({id, todos, todo, settodos}) => {
         <div className={tick} onClick={completeTodo}><TiTickOutline/></div>
         <div className='border border-stone-500 rounded px-2 py-2 cursor-pointer bg-stone-800 hover:border-red-500' onClick={deleteTodo}><BsTrash2/></div>
       </div>
-    </motion.div>
+    </div>
   )
 }
 

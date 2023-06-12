@@ -11,8 +11,7 @@ function App() {
 
  
   const [records, setrecords] = useState([
-    { id: Math.random(), study: 4, exercise: 2, leisure: 2},
-    { id: Math.random(), study: 2, exercise: 2, leisure: 2},
+    { id: Math.random(), study: 0, exercise: 0, leisure: 0},
   ])
 
   const [navopen, setnavopen] = useState(false)

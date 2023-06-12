@@ -19,7 +19,7 @@ let Studycard = ({records, setrecords}) => {
     <div>
       <form 
         onSubmit={handleSubmit(onSubmit)}
-        className=' border border-stone-800 text-white rounded px-5 p-5 bg-orange-500'>
+        className=' border border-stone-800 text-white rounded px-5 p-5 bg-orange-500 hover:scale-105 transition'>
         <div>
           <p className='text-3xl font-bold'>Study</p>
           <p className='text-lg font-bold'>Enter a number </p>
@@ -53,7 +53,7 @@ let Exercisecard = ({records, setrecords}) => {
     <div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className=' border border-stone-800 text-white rounded px-5 py-5 bg-green-500'>
+        className=' border border-stone-800 text-white rounded px-5 py-5 bg-green-500 hover:scale-105 transition'>
         <div>
           <p className='text-3xl font-bold'>Exercise</p>
           <p className='text-lg font-bold'>Enter a number </p>
@@ -86,7 +86,7 @@ let Lesuirecard = ({records, setrecords}) => {
     <div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className=' border border-stone-800 text-white rounded px-5 py-5 bg-blue-600'>
+        className=' border border-stone-800 text-white rounded px-5 py-5 bg-blue-600 hover:scale-105 transition'>
         <div>
           <p className='text-3xl font-bold'>Leisure</p>
           <p className='text-lg font-bold'>Enter a number </p>
@@ -104,7 +104,7 @@ let Lesuirecard = ({records, setrecords}) => {
 
 export const Settings = ({records, setrecords}) => {
   return (
-    <div className='h-screen w-[80vw] bg-stone-900 flex flex-col sm:grid sm:grid-cols-3 sm:gap-3 px-5 py-5'>
+    <div className='h-screen w-[80vw] bg-stone-900 flex flex-col sm:grid sm:grid-cols-3 grid-rows-3 sm:gap-3 px-5 py-5'>
       <Studycard records={records} setrecords={setrecords}/>
       <Exercisecard records={records} setrecords={setrecords}/>
       <Lesuirecard records={records} setrecords={setrecords}/>
