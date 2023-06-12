@@ -4,6 +4,7 @@ import { LineChart, Line } from 'recharts';
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, } from 'recharts';
+import Fade from 'react-reveal/Fade';
 
 
 // study card
@@ -15,7 +16,7 @@ let Studycard = ({records}) => {
 
   return(
     <div>
-      <div className='bg-orange-500 mt-5 py-5 px-5 sm:w-[25vw] flex flex-col sm:flex-none  rounded text-white hover:scale-105 transition'>
+      <div className='bg-orange-500 mt-5  py-5 px-5 sm:w-[25vw] flex flex-col sm:flex-none  rounded text-white hover:scale-105 transition'>
         <div className='font-bold text-5xl '>Study</div>
         <div className=''>{totalStudy} hours</div>
       </div>
@@ -58,12 +59,6 @@ let Leisurecard = ({records}) => {
   )
 }
 
-let Barchart = ({data}) => {
-
-}
-
-
-
 // dashboard
 export const Dashboard = ({records}) => {
 
@@ -94,12 +89,12 @@ const data2 = [
   },
   {
     subject: 'Exercise',
-    A: totalLeisure,
+    A: totalExercise,
     fullMark: 150,
   },
   {
     subject: 'Lesuire',
-    A: totalExercise,
+    A: totalLeisure,
     fullMark: 150,
   },
 
@@ -107,10 +102,11 @@ const data2 = [
 
 
   return (
+    <Fade>
 
     <div>
 
-    <div className='flex flex-col h-screen overflow-y-scroll sm:grid sm:grid-cols-3 sm:gap-5  w-[80vw] px-5 bg-stone-900'>
+    <div className='flex flex-col h-screen sm:grid sm:grid-cols-3 sm:gap-5  w-[80vw] px-5 bg-stone-900'>
       
       <Studycard records={records}/>
       <Exercisecard records={records}/>
@@ -139,5 +135,6 @@ const data2 = [
     </div>
 
     </div>
+    </Fade>
   )
 }

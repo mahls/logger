@@ -2,6 +2,8 @@ import React from 'react'
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Zoom from 'react-reveal/Zoom';
+import Fade from 'react-reveal/Fade';
 
 let Studycard = ({records, setrecords}) => {
 
@@ -24,7 +26,7 @@ let Studycard = ({records, setrecords}) => {
           <p className='text-3xl font-bold'>Study</p>
           <p className='text-lg font-bold'>Enter a number </p>
           <div className='flex flex-col'>
-              <input className='rounded text-black px-2 mt-2 w-full' 
+              <input className='rounded text-black px-2 mt-2 w-full' autocomplete="off" 
               {...register("study", {required: true})}
             />
               <button className='rounded bg-blue-500 mt-2 hover:bg-blue-700 transition w-full'>Submit</button>
@@ -58,7 +60,7 @@ let Exercisecard = ({records, setrecords}) => {
           <p className='text-3xl font-bold'>Exercise</p>
           <p className='text-lg font-bold'>Enter a number </p>
           <div className='flex flex-col'>
-              <input className='rounded text-black px-2 mt-2 w-full' {...register("exercise", {required: true})} />
+              <input autocomplete="off" className='rounded text-black px-2 mt-2 w-full' {...register("exercise", {required: true})} />
               <button className='rounded bg-blue-500 mt-2 hover:bg-blue-700 transition w-full'>Submit</button>
           </div>
         </div>
@@ -66,8 +68,6 @@ let Exercisecard = ({records, setrecords}) => {
     </div>
   )
 }
-
-
 
 let Lesuirecard = ({records, setrecords}) => {
 
@@ -91,7 +91,7 @@ let Lesuirecard = ({records, setrecords}) => {
           <p className='text-3xl font-bold'>Leisure</p>
           <p className='text-lg font-bold'>Enter a number </p>
           <div className='flex flex-col'>
-              <input className='rounded text-black px-2 mt-2 w-full' {...register("leisure", {required: true})}/>
+              <input className='rounded text-black px-2 mt-2 w-full' autocomplete="off" {...register("leisure", {required: true})}/>
               <button className='rounded bg-blue-500 mt-2 hover:bg-blue-700 transition w-full'>Submit</button>
           </div>
         </div>
@@ -101,13 +101,60 @@ let Lesuirecard = ({records, setrecords}) => {
 }
 
 
+let Resetcard=({resetStudy, resetExercise, resetLeisuire})=>{
+  
+  return (
+    <div className='rounded bg-stone-800 px-5 py-5 border border-red-500'>
+      <div className='text-3xl font-bold text-white'>Reset</div>
+      <div className='flex justify-center'>
+        <button onClick={resetStudy} className='hover:bg-blue-900 transition mt-4 text-bold text-white bg-blue-700 rounded w-full w-screen'>Study</button>
+      </div>     
+      <div className='flex justify-center'>
+        <button onClick={resetExercise} className='hover:bg-blue-900 transition mt-2 text-bold text-white bg-blue-700 rounded w-full w-screen'>Excecise</button>
+      </div>     
+      <div className='mt-2 flex justify-center'>
+        <button onClick={resetLeisuire} className='hover:bg-blue-900 transition text-bold text-white bg-blue-700 rounded w-full w-screen'>Leisure</button>
+      </div>
+    </div>
+  )
+}
+
+let Modal=()=>{
+  <div>
+    hello
+  </div>
+}
+
 
 export const Settings = ({records, setrecords}) => {
+
+
+  let resetStudy =()=> {
+    const updatedRecords = records.map((record) => ({...record, study: 0,}));
+    console.log(updatedRecords)
+    setrecords(updatedRecords)
+  }
+
+  let resetExercise =()=> {
+    const updatedRecords = records.map((record) => ({...record, exercise: 0,}));
+    console.log(updatedRecords)
+    setrecords(updatedRecords)
+  }
+
+  let resetLeisuire =()=> {
+    const updatedRecords = records.map((record) => ({...record, leisure: 0,}));
+    console.log(updatedRecords)
+    setrecords(updatedRecords)
+  }
+
   return (
+    <Fade>
     <div className='h-screen w-[80vw] bg-stone-900 flex flex-col sm:grid sm:grid-cols-3 grid-rows-3 sm:gap-3 px-5 py-5'>
       <Studycard records={records} setrecords={setrecords}/>
       <Exercisecard records={records} setrecords={setrecords}/>
       <Lesuirecard records={records} setrecords={setrecords}/>
+      <Resetcard resetStudy={resetStudy} resetExercise={resetExercise} resetLeisuire={resetLeisuire}/>
     </div>
+    </Fade>
   )
 }

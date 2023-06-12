@@ -3,6 +3,8 @@ import {useState, useEffect} from 'react'
 import {BsTrash2} from 'react-icons/bs'
 import {TiTickOutline} from 'react-icons/ti'
 import { useForm } from "react-hook-form";
+import Zoom from 'react-reveal/Zoom';
+import Fade from 'react-reveal/Fade';
 
 // FORM
 let Form = ({todos, settodos}) => {
@@ -59,16 +61,15 @@ let Todo = ({id, todos, todo, settodos}) => {
 
 
   return(
-    <div
-      
-      className='flex justify-between mt-2'
-    >
+    <Fade>
+    <div  className='flex justify-between mt-2'>
       <div className={text}>{todo.text}</div>
       <div className='flex'>
         <div className={tick} onClick={completeTodo}><TiTickOutline/></div>
         <div className='border border-stone-500 rounded px-2 py-2 cursor-pointer bg-stone-800 hover:border-red-500' onClick={deleteTodo}><BsTrash2/></div>
       </div>
     </div>
+    </Fade>
   )
 }
 
@@ -79,6 +80,7 @@ export const Notes = ()=> {
   const [todos, settodos] = useState([])
 
   return(
+    <Fade>
     <>
     <div className='text-stone-300 flex justify-center w-[80vw] bg-stone-900 h-screen'>
       <div className='flex-col'>
@@ -98,5 +100,6 @@ export const Notes = ()=> {
       </div>
     </div>
     </>
+    </Fade>
   )
 }

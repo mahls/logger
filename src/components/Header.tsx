@@ -12,7 +12,7 @@ export const Header = ({navopen, setnavopen}) => {
     <div className='flex justify-between bg-violet-900'>
       <div className='text-stone-300 font-bold px-5 py-3 bg-violet-900 font-extrabold text-lg'>LOGGER</div>
       <div>
-        <div onClick={toggleNav} className='border sm:hidden border-stone-600 text-stone-200 mt-2 mx-5 cursor-pointer rounded px-2 py-1'>
+        <div onClick={toggleNav} className='border sm:hidden border-stone-600 text-stone-200 mt-3.5 mx-5 cursor-pointer rounded px-2 py-1'>
           <RxHamburgerMenu/>
         </div>
       </div>
