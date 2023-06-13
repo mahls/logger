@@ -26,7 +26,7 @@ let Form = ({todos, settodos}) => {
 
       <form   onSubmit={handleSubmit(onSubmit)}>
         {errors.exampleRequired && <span>This field is required</span>}
-        <input onChange={(e)=>{setinput(e.target.value)}} 
+        <input  autocomplete="off" onChange={(e)=>{setinput(e.target.value)}} 
           className='focus:ring-0 focus:border-transparent focus:ring-offset-0 px-2 py-1 rounded bg-stone-800 mt-5 mb-5 w-[40vw]'
           {...register("input", { required: true })}
         />

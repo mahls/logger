@@ -106,13 +106,13 @@ const data2 = [
 
     <div>
 
-    <div className='flex flex-col h-screen sm:grid sm:grid-cols-3 sm:gap-5  w-[80vw] px-5 bg-stone-900'>
+    <div className='flex flex-col h-screen sm:grid sm:grid-cols-3 sm:gap-5 px-5 bg-stone-900'>
       
       <Studycard records={records}/>
       <Exercisecard records={records}/>
       <Leisurecard records={records}/>
-      
-      <BarChart width={1000} height={200} data={data} className='mt-10' >
+     
+      <BarChart width={300} height={300} data={data} className='mt-10' >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis />
@@ -120,9 +120,9 @@ const data2 = [
         <Legend />
         <Bar dataKey="data" fill="#8884d8" />
       </BarChart>
-     
-      <div className='mt-60'>
-      <ResponsiveContainer width="100%" height="100%">
+      
+      <div className=''>
+      <ResponsiveContainer >
         <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data2}>
           <PolarGrid />
           <PolarAngleAxis dataKey="subject" />
@@ -133,6 +133,7 @@ const data2 = [
       </div>
 
     </div>
+
 
     </div>
     </Fade>
