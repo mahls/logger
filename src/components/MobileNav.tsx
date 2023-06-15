@@ -9,7 +9,7 @@ import {FiShield} from 'react-icons/fi'
 
 export const MobileNav = ({navopen, setnavopen}) => {
 
-  let navStyle = `${navopen ? 'fixed z-50 bg-stone-900 top-0 w-screen h-screen' : 'hidden opacity-0'}`
+  let navStyle = `${navopen ? 'fixed z-50 bg-stone-950 top-0 w-screen h-screen' : 'hidden opacity-0'}`
   let menuoption = 'font-bold text-stone-200 text-lg flex px-5 py-5 border-b border-stone-800 hover:bg-stone-900 hover:opacity-75 cursor-pointer'
   
   let closeNav = () => {

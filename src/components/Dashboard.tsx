@@ -51,7 +51,7 @@ let Leisurecard = ({records}) => {
 
   return(
     <div>
-      <div className='bg-blue-500 mt-5 py-5 px-5 sm:w-[25vw] flex flex-col rounded text-white hover:scale-105 transition'>
+      <div className='bg-blue-500 w-full mt-5 py-5 px-5 sm:w-[25vw] flex flex-col rounded text-white hover:scale-105 transition'>
         <div className='font-bold text-5xl'>Leisure</div>
         <div className=''>{totalLeisure} hours</div>
       </div>

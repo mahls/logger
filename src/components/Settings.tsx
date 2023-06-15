@@ -11,7 +11,6 @@ let Studycard = ({records, setrecords}) => {
   const onSubmit = data => addRecord(data);
 
   let addRecord = (data) => {
-    console.log(data)
     let studyHours = parseInt(data.study)
     setrecords([...records, {id:Math.random(), study: studyHours, exercise: 0, leisure: 0}]) 
     reset()
@@ -27,7 +26,7 @@ let Studycard = ({records, setrecords}) => {
           <p className='text-lg font-bold'>Enter a number </p>
           <div className='flex flex-col'>
               <input className='rounded text-black px-2 mt-2 w-full' type="number" autocomplete="off" 
-              {...register("study", {required: true})}
+              {...register("study", {required: true, max: 15})}
             />
               <button className='rounded bg-blue-500 mt-2 hover:bg-blue-700 transition w-full'>Submit</button>
           </div>
@@ -46,7 +45,6 @@ let Exercisecard = ({records, setrecords}) => {
 
   let addRecord = (data) => {
     let exerciseHours = parseInt(data.exercise)
-    console.log(exerciseHours)
     setrecords([...records, {id:Math.random(), study: 0, exercise: exerciseHours, leisure: 0}]) 
     reset()
   }
@@ -60,7 +58,8 @@ let Exercisecard = ({records, setrecords}) => {
           <p className='text-3xl font-bold'>Exercise</p>
           <p className='text-lg font-bold'>Enter a number </p>
           <div className='flex flex-col'>
-              <input autocomplete="off" type="number" className='rounded text-black px-2 mt-2 w-full' {...register("exercise", {required: true})} />
+              <input autocomplete="off" type="number" className='rounded text-black px-2 mt-2 w-full'
+              {...register("exercise", {required: true, max: 15})} />
               <button className='rounded bg-blue-500 mt-2 hover:bg-blue-700 transition w-full'>Submit</button>
           </div>
         </div>
@@ -92,7 +91,7 @@ let Lesuirecard = ({records, setrecords}) => {
           <p className='text-lg font-bold'>Enter a number </p>
           <div className='flex flex-col'>
               <input className='rounded text-black px-2 mt-2 w-full' type="number"
-              autocomplete="off" {...register("leisure", {required: true})}/>
+              autocomplete="off" {...register("leisure", {required: true, max: 15})}/>
               <button className='rounded bg-blue-500 mt-2 hover:bg-blue-700 transition w-full'>Submit</button>
           </div>
         </div>
